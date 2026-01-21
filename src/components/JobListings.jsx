@@ -1,4 +1,4 @@
-import JobListing from "./joblisting";
+import JobListing from "./Joblisting";
 import { useEffect, useState } from "react";
 import Spinners from "./Spinners";
 
