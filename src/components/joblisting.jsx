@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { FaMapMarker } from "react-icons/fa";
+import { Link } from "react-router";
 
-const Joblisting = ({ job }) => {
+const JobListing = ({ job }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
+
   let description = job.description;
   if (!showFullDescription && description.length > 100) {
-    description = description.slice(0, 90) + "...";
+    description = description.substring(0, 90) + "...";
   }
   return (
     <div className="bg-white rounded-xl shadow-md relative">
@@ -21,7 +24,7 @@ const Joblisting = ({ job }) => {
           }}
           className="text-indigo-500 mb-5 hover:text-indigo-600"
         >
-          {showFullDescription ? "More" : "Less"}
+          {showFullDescription ? "Less" : "More"}
         </button>
         <h3 className="text-indigo-500 mb-2">{job.salary}</h3>
 
@@ -29,19 +32,19 @@ const Joblisting = ({ job }) => {
 
         <div className="flex flex-col lg:flex-row justify-between mb-4">
           <div className="text-orange-700 mb-3">
-            <i className="fa-solid fa-location-dot text-lg"></i>
+            <FaMapMarker className="inline-block mb-1 mr-1 text-lg" />
             {job.location}
           </div>
-          <a
-            href="job.html"
+          <Link
+            to={`/jobs/${job.id}`}
             className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Read More
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default Joblisting;
+export default JobListing;
