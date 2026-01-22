@@ -1,5 +1,4 @@
-import React from "react";
-import { ClipLoader } from "react-spinners/Cliploader";
+import { ClipLoader } from "react-spinners";
 
 const Spinners = ({ loading }) => {
   const override = {
